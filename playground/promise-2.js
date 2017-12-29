@@ -1,12 +1,15 @@
+/* request take some JSON data, convert it to some JS object
+so we can acess the JSON propreties in our code. Request make HTTP requests*/
 const request = require('request');
+/* request take 2 arguments: an options object and a callback function */
 
-const geocodeAddress = (address) => {
+const geocodeAddress = address => {
 	return new Promise((resolve, reject) => {
 		address = encodeURIComponent(address);
 		request(
 			{
 				url: `https://maps.googleapis.com/maps/api/geocode/json?address=${address}`,
-				json: true
+				json: true // this tells that the data coming back is gonna be a JSON, so it's gonna convert it to an object
 			},
 			(error, response, body) => {
 				if (error) {
