@@ -12,7 +12,9 @@ const getWeather = (lat, lng, callback) => {
 					temperature: body.currently.temperature,
 					apparentTemperature: body.currently.apparentTemperature
 				});
-			} else callback('unable to fetch weatch');
+				/* undefined is used on the first argument above because this is where the error message
+				would be located. since there ain't no error, it's undefined. */
+			} else callback('unable to fetch weatch'); // this is the first and only argument; the error message!
 		}
 	);
 };

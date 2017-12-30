@@ -13,6 +13,7 @@ const argv = yargs
 	.help()
 	.alias('help', 'h').argv;
 
+/* v replace blank spaces for '%20' */
 const encondedAddress = encodeURIComponent(argv.address);
 const geocodeUrl = `https://maps.googleapis.com/maps/api/geocode/json?address=${encondedAddress}`;
 
