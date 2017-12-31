@@ -3,12 +3,13 @@ so we can acess the JSON propreties in our code. Request make HTTP requests*/
 const request = require('request');
 /* request take 2 arguments: an options object and a callback function */
 
+/* 'request' does not support promises. this is why we're wrapping the whole thing inside a promise! */
 const geocodeAddress = address => {
 	return new Promise((resolve, reject) => {
-		address = encodeURIComponent(address);
+		encodedAddress = encodeURIComponent(address);
 		request(
 			{
-				url: `https://maps.googleapis.com/maps/api/geocode/json?address=${address}`,
+				url: `https://maps.googleapis.com/maps/api/geocode/json?address=${encodedAddress}`,
 				json: true // this tells that the data coming back is gonna be a JSON, so it's gonna convert it to an object
 			},
 			(error, response, body) => {
